@@ -1,5 +1,6 @@
 "use client";
 
+import LiveBadge from "@/components/live-badge";
 import { Button } from "@/components/ui/button";
 import UserAvatar from "@/components/user-avatar";
 import { cn } from "@/lib/utils";
@@ -36,6 +37,8 @@ export const UserItem = ({ username, imageUrl, isLive }: UserItemProps) => {
           )}
         >
           <UserAvatar imageUrl={imageUrl} username={username} isLive={isLive} />
+          {!collapsed && <p className="truncate">{username}</p>}
+          {!collapsed && isLive && <LiveBadge className="ml-auto" />}
         </div>
       </Link>
     </Button>
